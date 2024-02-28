@@ -7,10 +7,11 @@ console.log(parola);
 const parolaSplit = parola.split('');
 console.log(parolaSplit);
 
-const parolaReverse = parolaSplit.reverse('');
-console.log(parolaReverse);
-
-const parolaInvertita = parolaReverse.join('');
+let parolaInvertita = '';
+for (let i = parolaSplit.length - 1; i >= 0; i--) {
+  parolaInvertita = parolaSplit[i];
+  
+}
 
 function showMessage() {
   if (parola === parolaInvertita) {
@@ -58,7 +59,7 @@ if (pariDispari !=='pari' && pariDispari !== 'dispari') {
   function risultato() {
     if ((pariDispari === 'pari' && !(somma % 2) || (pariDispari === 'dispari' && (somma % 2)))) {
       output2.innerHTML += `
-      Hai scelto ${pariDispari} ed é uscito ${somma} quindi ha vinto
+      Hai scelto ${pariDispari} ed é uscito ${somma} quindi hai vinto
       `;
   
     }else{
