@@ -32,37 +32,43 @@ const output2 = document.querySelector('.output2');
 const pariDispari = prompt('Pari o dispari?');
 console.log('Hai scelto: ', pariDispari);
 
-// Numero A
-const numA = parseInt(prompt('Inserisci un numero da 1 a 5'));
-console.log('Numero A: ', numA);
+if (pariDispari !=='pari' && pariDispari !== 'dispari') {
+  alert('Hai inserito un valore errato. Inserisci un valore corretto!');
+}else{
+  // Numero A
+  const numA = parseInt(prompt('Inserisci un numero da 1 a 5'));
+  console.log('Numero A: ', numA);
 
-if (isNaN(numA)) {
-  alert('Inserire un numero corretto');
-}
-
-// Numero B
-const numB = getRandomNumberCpu(1, 5);
-console.log('Numero B: ', numB);
-
-function getRandomNumberCpu(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
-
-// Somma
-const somma = numA + numB;
-console.log('La somma = ',somma);
-
-function risultato() {
-  if ((pariDispari === 'pari' && !(somma % 2) || (pariDispari === 'dispari' && (somma % 2)))) {
-    output2.innerHTML += `
-    Hai scelto ${pariDispari} quindi ha vinto
-    `;
-
-  }else{
-    output2.innerHTML += `
-    User ha scelto ${pariDispari} quindi ha vinto la CPU
-    `;
+  if (isNaN(numA)) {
+    alert('Inserire un numero corretto');
   }
+
+  // Numero B
+  const numB = getRandomNumberCpu(1, 5);
+  console.log('Numero B: ', numB);
+
+  function getRandomNumberCpu(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+  
+  // Somma
+  const somma = numA + numB;
+  console.log('La somma = ',somma);
+
+  function risultato() {
+    if ((pariDispari === 'pari' && !(somma % 2) || (pariDispari === 'dispari' && (somma % 2)))) {
+      output2.innerHTML += `
+      Hai scelto ${pariDispari} ed é uscito ${somma} quindi ha vinto
+      `;
+  
+    }else{
+      output2.innerHTML += `
+      User ha scelto ${pariDispari} ed é uscito ${somma} quindi ha vinto la CPU
+      `;
+    }
+  }
+  
+  risultato();
 }
 
-risultato();
+
